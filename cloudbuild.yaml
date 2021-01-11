@@ -1,0 +1,13 @@
+steps:
+# Build the container image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/cat-tree-f62c9/cat-bot', '.']
+# Push the container image to Container Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/cat-tree-f62c9/cat-bot']
+# Deploy container image to Cloud Run
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args: ['run', 'deploy', 'cat-bot', '--image', 'gcr.io/cat-tree-f62c9/cat-bot', '--region', 'asia-northeast1', '--platform', 'managed']
+images:
+- gcr.io/cat-tree-f62c9/cat-bot

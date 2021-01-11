@@ -1,3 +1,3 @@
 .envrc
-./secret
-./.vs_code
+secret/
+.vs_code

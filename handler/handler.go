@@ -18,10 +18,10 @@ type Handler struct {
 }
 
 const (
-	list  string = "List"
+	list  string = "list"
 	add   string = "add"
-	clear string = "Clear"
-	broad string = "Broad"
+	clear string = "clear"
+	broad string = "broad"
 	done  string = "done"
 	point string = "point"
 )
